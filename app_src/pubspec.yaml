@@ -1,0 +1,16 @@
+name: filezip
+description: Simple file manager with ZIP extract and create.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  archive: ^3.6.1
+  permission_handler: ^11.3.1
+
+flutter:
+  uses-material-design: true
