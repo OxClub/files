@@ -1,0 +1,6 @@
+app/
+build/
+.dart_tool/
+*.jks
+*.keystore
+ks.txt
