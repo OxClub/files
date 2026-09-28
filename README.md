@@ -1,9 +1,8 @@
 # OxFiles
 
-Simple file manager for Amazon Fire tablets (Fire OS 7/8).
+File manager for Amazon Fire tablets (Fire OS 7/8). Package: `com.oxclub.oxfiles`.
 
-- Package: `com.oxclub.oxfiles`
-- Stack: Kotlin + Jetpack Compose
-- Open in Android Studio, let Gradle sync, run on a Fire tablet or emulator.
-
-Status: starter (storage card + folder browser). Categories, search and file operations are next.
+- Kotlin + Jetpack Compose, dark UI matching the 0x icon
+- Categories (Images, Videos, Audio, Documents, APKs, Archives) built from a real scan of internal storage and SD card
+- Thumbnails (Coil), folder browser, search, open files with other apps
+- CI: `.github/workflows/build.yml` builds a debug APK on every push
