@@ -4,6 +4,8 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+val ksFile: String? = System.getenv("OX_KEYSTORE_FILE")
+
 android {
     namespace = "com.oxclub.oxfiles"
     compileSdk = 34
@@ -12,10 +14,27 @@ android {
         applicationId = "com.oxclub.oxfiles"
         minSdk = 28
         targetSdk = 34
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 1      // raise by 1 for every update you upload to the Appstore
+        versionName = "1.0.0"
     }
-    buildTypes { release { isMinifyEnabled = false } }
+
+    signingConfigs {
+        create("release") {
+            if (ksFile != null) {
+                storeFile = file(ksFile)
+                storePassword = System.getenv("OX_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("OX_KEY_ALIAS")
+                keyPassword = System.getenv("OX_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            if (ksFile != null) signingConfig = signingConfigs.getByName("release")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
